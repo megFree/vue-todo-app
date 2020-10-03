@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'PT Sans';
+    src: url(fonts/PTSans-Regular.ttf);
+}
+
+html {
+    font-family: 'PT Sans', Arial, sans-serif;
+    padding: 30px;
+}
+
+body {
+    background: #fafafa;
+}
+
+#app {
+    width: 300px;
+}
+
+.header {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-item__text {
+    flex-grow: 1;
+}
+
+.add-todo {
+    display: flex;
+    margin-top: 10px;
+}
+
+.add-todo__text-input {
+    flex-grow: 1;
+}
