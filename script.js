@@ -6,12 +6,6 @@ const app = Vue.createApp({
             localStorage.setItem('vue-todos', JSON.stringify(this.$data.todos));
         }
         this.$data.todos = JSON.parse(localStorage.getItem('vue-todos'));
-
-        const storedDoneTodos = localStorage.getItem('vue-done-todos');
-        if (!storedDoneTodos) {
-            localStorage.setItem('vue-done-todos', JSON.stringify(this.$data.doneTodos));
-        }
-        this.$data.doneTodos = JSON.parse(localStorage.getItem('vue-done-todos'));
     },
 
     template: `
@@ -39,7 +33,7 @@ const app = Vue.createApp({
                 { id: 2, text: 'Learn CSS', isDone: false },
                 { id: 3, text: 'Learn JS', isDone: false },
                 { id: 4, text: 'Learn Vue.js', isDone: false },
-                { id: 5, text: 'Do something great!', isDone: false },
+                { id: 5, text: 'Do something great!', isDone: false }
             ]
         }
     },
@@ -70,7 +64,7 @@ const app = Vue.createApp({
         },
         addTodo(ev, text) {
             let ids = [];
-            this.todos.concat(this.doneTodos).forEach(todo => {
+            this.todos.forEach(todo => {
                 ids.push(todo.id)
             });
             const newId = Math.max.apply(null, ids) + 1;
@@ -82,7 +76,6 @@ const app = Vue.createApp({
         },
         saveData() {
             localStorage.setItem('vue-todos', JSON.stringify(this.$data.todos));
-            localStorage.setItem('vue-done-todos', JSON.stringify(this.$data.doneTodos));
         }
     }
 });
